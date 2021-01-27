@@ -29,7 +29,7 @@ urlpatterns = [
     path('', redirect_to_api_root),
     path('auth/token/', ObterJWTToken.as_view(), name='token_obtain_pair'),
     path('auth/token/verify/', VerificarToken.as_view(), name='token_verify'),
-    path('api/token/refresh/', RefreshJWTToken.as_view(), name='token_refresh'),
+    path('auth/token/refresh/', RefreshJWTToken.as_view(), name='token_refresh'),
 ]
 
 
