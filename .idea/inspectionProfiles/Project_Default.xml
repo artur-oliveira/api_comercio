@@ -1,0 +1,50 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="227" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="17">
+            <item index="0" class="java.lang.String" itemvalue="bs4" />
+            <item index="1" class="java.lang.String" itemvalue="mechanize" />
+            <item index="2" class="java.lang.String" itemvalue="dotenv" />
+            <item index="3" class="java.lang.String" itemvalue="psutil" />
+            <item index="4" class="java.lang.String" itemvalue="flask-restplus" />
+            <item index="5" class="java.lang.String" itemvalue="mongoengine" />
+            <item index="6" class="java.lang.String" itemvalue="googleapiclient" />
+            <item index="7" class="java.lang.String" itemvalue="google" />
+            <item index="8" class="java.lang.String" itemvalue="markdown" />
+            <item index="9" class="java.lang.String" itemvalue="certifi" />
+            <item index="10" class="java.lang.String" itemvalue="requests" />
+            <item index="11" class="java.lang.String" itemvalue="coreapi" />
+            <item index="12" class="java.lang.String" itemvalue="itypes" />
+            <item index="13" class="java.lang.String" itemvalue="django-rest-swagger" />
+            <item index="14" class="java.lang.String" itemvalue="openapi-codec" />
+            <item index="15" class="java.lang.String" itemvalue="coreschema" />
+            <item index="16" class="java.lang.String" itemvalue="drf-yasg" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="type.with_ui" />
+          <option value="type.without_ui" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

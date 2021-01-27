@@ -1,0 +1,1 @@
+web: gunicorn api_comercio.wsgi --log-file -
