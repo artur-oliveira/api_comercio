@@ -212,6 +212,7 @@ class VendaDetail(RetrieveUpdateDestroyAPIView):
 
 class ProdutoMaisVendido(RetrieveAPIView):
     serializer_class = ProdutoMaisVendidoSerializer
+    permission_classes = (IsSellerOrReadOnly, )
 
     def get_object(self):
         try:
@@ -225,6 +226,7 @@ class ProdutoMaisVendido(RetrieveAPIView):
 
 class PagamentoMaisUtilizado(RetrieveAPIView):
     serializer_class = PagamentoMaisUtilizadoSerializer
+    permission_classes = (IsSellerOrReadOnly, )
 
     def get_object(self):
         try:
