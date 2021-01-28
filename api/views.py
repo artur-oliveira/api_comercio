@@ -1,3 +1,4 @@
+from django.http import Http404
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -217,9 +218,9 @@ class ProdutoMaisVendido(RetrieveAPIView):
             return Produto.objects.get(id=ProdutoVenda.objects.values('produto').annotate(
                 produtos_count=Count('produto')).order_by('-produtos_count')[0].get('produto'))
         except IndexError:
-            return Produto.objects.none()
+            raise Http404
         except Produto.DoesNotExist:
-            return Produto.objects.none()
+            raise Http404
 
 
 class PagamentoMaisUtilizado(RetrieveAPIView):
@@ -230,6 +231,6 @@ class PagamentoMaisUtilizado(RetrieveAPIView):
             return Pagamento.objects.get(id=Venda.objects.values('pagamento').annotate(
                 pagamentos_count=Count('pagamento')).order_by('-pagamentos_count')[0].get('pagamento'))
         except IndexError:
-            return Pagamento.objects.none()
-        except Pagamento.DoesNotExist:
-            return Pagamento.objects.none()
+            raise Http404
+        except Produto.DoesNotExist:
+            raise Http404
