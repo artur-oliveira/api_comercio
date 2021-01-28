@@ -216,6 +216,8 @@ class ProdutoMaisVendido(RetrieveAPIView):
         try:
             return Produto.objects.get(id=ProdutoVenda.objects.values('produto').annotate(
                 produtos_count=Count('produto')).order_by('-produtos_count')[0].get('produto'))
+        except IndexError:
+            return Produto.objects.none()
         except Produto.DoesNotExist:
             return Produto.objects.none()
 
@@ -227,5 +229,7 @@ class PagamentoMaisUtilizado(RetrieveAPIView):
         try:
             return Pagamento.objects.get(id=Venda.objects.values('pagamento').annotate(
                 pagamentos_count=Count('pagamento')).order_by('-pagamentos_count')[0].get('pagamento'))
+        except IndexError:
+            return Pagamento.objects.none()
         except Pagamento.DoesNotExist:
-            return Produto.objects.none()
+            return Pagamento.objects.none()
