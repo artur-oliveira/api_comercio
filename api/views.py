@@ -5,18 +5,21 @@ from rest_framework.reverse import reverse
 from rest_framework_simplejwt.serializers import (TokenObtainPairSerializer,
                                                   TokenVerifySerializer,
                                                   TokenRefreshSerializer)
-from django.db.models import Q
+from django.db.models import Q, Count
 from .models import (Categoria,
                      User,
                      Pagamento,
                      Produto,
                      Venda,
+                     ProdutoVenda,
                      )
 from .serializers import (CategoriaSerializer,
                           UserSerializer,
                           PagamentoSerializer,
                           ProdutoSerializer,
                           VendaSerializer,
+                          ProdutoMaisVendidoSerializer,
+                          PagamentoMaisUtilizadoSerializer,
                           )
 from .permissions import (IsSellerOrReadOnly,
                           IsSeller,
@@ -204,3 +207,25 @@ class VendaDetail(RetrieveUpdateDestroyAPIView):
         return Venda.objects.filter(Q(vendedor=user) | Q(cliente=user))
 
     permission_classes = (IsSellerOrClient, )
+
+
+class ProdutoMaisVendido(RetrieveAPIView):
+    serializer_class = ProdutoMaisVendidoSerializer
+
+    def get_object(self):
+        try:
+            return Produto.objects.get(id=ProdutoVenda.objects.values('produto').annotate(
+                produtos_count=Count('produto')).order_by('-produtos_count')[0].get('produto'))
+        except Produto.DoesNotExist:
+            return Produto.objects.none()
+
+
+class PagamentoMaisUtilizado(RetrieveAPIView):
+    serializer_class = PagamentoMaisUtilizadoSerializer
+
+    def get_object(self):
+        try:
+            return Pagamento.objects.get(id=Venda.objects.values('pagamento').annotate(
+                pagamentos_count=Count('pagamento')).order_by('-pagamentos_count')[0].get('pagamento'))
+        except Pagamento.DoesNotExist:
+            return Produto.objects.none()

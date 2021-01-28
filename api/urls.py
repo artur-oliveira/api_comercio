@@ -6,7 +6,7 @@ from .views import (CategoriaList, CategoriaDetail,
                     PagamentoList, PagamentoDetail,
                     ProdutoList, ProdutoDetail,
                     VendaList, VendaDetail,
-                    api_root)
+                    api_root, ProdutoMaisVendido, PagamentoMaisUtilizado)
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -48,4 +48,7 @@ urlpatterns = [
 
     path('users/', UserList.as_view(), name='user'),
     path('users/<int:pk>', UserDetail.as_view(), name='user-detail'),
+
+    path('stats/produto-mais-vendido', ProdutoMaisVendido.as_view(), name='produto-mais-vendido'),
+    path('stats/pagamento-mais-utilizado', PagamentoMaisUtilizado.as_view(), name='pagamento-mais-utilizado')
 ]

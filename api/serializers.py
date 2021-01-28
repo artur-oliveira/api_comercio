@@ -143,3 +143,15 @@ class VendaSerializer(serializers.HyperlinkedModelSerializer):
         instance.save()
 
         return instance
+
+
+class ProdutoMaisVendidoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Produto
+        fields = ('url', )
+
+
+class PagamentoMaisUtilizadoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Pagamento
+        fields = ('url', )
