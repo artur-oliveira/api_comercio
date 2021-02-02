@@ -195,7 +195,7 @@ class VendaList(ListCreateAPIView):
     ordering_fields = ('id', 'data_venda', 'valor_venda', 'vendedor', 'cliente')
 
 
-class VendaDetail(RetrieveUpdateDestroyAPIView):
+class VendaDetail(RetrieveAPIView):
     """
     Detalhes da venda
     """
