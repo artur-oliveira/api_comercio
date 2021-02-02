@@ -1,5 +1,6 @@
 from django.http import Http404
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import mixins
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
@@ -31,7 +32,7 @@ from rest_framework_simplejwt.views import TokenViewBase
 from rest_framework.generics import (ListCreateAPIView,
                                      ListAPIView,
                                      RetrieveUpdateDestroyAPIView,
-                                     RetrieveAPIView)
+                                     RetrieveAPIView, GenericAPIView, )
 
 
 class ObterJWTToken(TokenViewBase):
@@ -195,7 +196,9 @@ class VendaList(ListCreateAPIView):
     ordering_fields = ('id', 'data_venda', 'valor_venda', 'vendedor', 'cliente')
 
 
-class VendaDetail(RetrieveAPIView):
+class VendaDetail(mixins.RetrieveModelMixin,
+                  mixins.DestroyModelMixin,
+                  GenericAPIView):
     """
     Detalhes da venda
     """
