@@ -54,5 +54,5 @@ python manage.py runserver 8000
 ```
 
 ### Uso do sistema
-Antes de utilizar, seja como vendedor ou como cliente, será preciso criar as credenciais de cada vendedor e/ou cliente no <a href="http://localhost:8000/admin">painel de admin</a>.
-Conforme explicado no vídeo de uso neste <a href="https://youtu.be/GsqvygIRUcQ">link</a>
+Antes de utilizar, seja como vendedor ou como cliente, será preciso criar as credenciais de cada vendedor e/ou cliente no <a href="http://localhost:8000/admin" target="_blank">painel de admin</a>.
+Conforme explicado no vídeo de uso neste <a href="https://youtu.be/GsqvygIRUcQ" target="_blank">link</a>
